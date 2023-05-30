@@ -1,0 +1,31 @@
+<p class="text-3xl text-center font-bold">Danh sách sản phẩm</p>
+<table class="w-[700px] mx-auto mt-5 border border-gray text-center">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let show of getAllPr; index as so">
+            <td>{{so +1}}</td>
+            <td>{{show.name}}</td>
+            <td><img class="w-44 h-20 my-auto" src="{{show.image}}" alt=""></td>
+            <td>{{show.description}}</td>
+            <td class="flex space-x-2 justify-center mt-5">
+                <button (click)="RemovePr(show.id)"
+                    class="">Remove</button>
+                <a routerLink="updatePr/{{show.id}}">
+                    <button (click)="UpdatePr(show.id)"
+                        class="">Update</button>
+                </a>
+                <a routerLink="addPr">
+                    <button class="">Thêm sản phẩm</button>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
